@@ -16,6 +16,15 @@ export const postType = defineType({
       type: "string",
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        maxLength: 50,
+      },
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "string",
