@@ -1,4 +1,4 @@
-export default {
+export const productType = {
   name: "product",
   type: "document",
   title: "Product",

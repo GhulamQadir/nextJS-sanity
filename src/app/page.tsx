@@ -10,14 +10,14 @@ export default function Home() {
     const fetchPosts = async () => {
       const data = await fetchData();
       setPostData(data);
-      console.log(postData);
+      console.log("postData", postData);
     };
     fetchPosts();
   }, []);
 
   interface PostT {
     title: string;
-    image: string;
+    images: string[];
     description: string;
     slug: string;
     _id: string;
@@ -28,13 +28,12 @@ export default function Home() {
     <div className="flex flex-wrap justify-around gap-y-5">
       {postData?.map((post: PostT) => {
         console.log(post);
-        const { image, title, price, description, slug, _id } = post;
-        console.log("slug=>>", post);
+        const { title, price, images, description, slug, _id } = post;
         return (
           <div key={_id} className="border-2 w-2/5">
             <Link href={`products/${slug}`}>
               <Image
-                src={urlFor(image).url()}
+                src={urlFor(images[0]).url()}
                 height={200}
                 width={230}
                 alt="image"

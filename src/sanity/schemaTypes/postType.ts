@@ -5,11 +5,26 @@ export const postType = defineType({
   title: "Post",
   type: "document",
   fields: [
-    defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-    }),
+    // defineField({
+    //   name: "image",
+    //   title: "Image",
+    //   type: "image",
+    // }),
+    {
+      name: "images",
+      type: "array",
+      title: "Images",
+      of: [
+        {
+          type: "image",
+        },
+      ],
+      options: {
+        validation: {
+          max: 3, // Allow a maximum of 10 images
+        },
+      },
+    },
     defineField({
       name: "title",
       title: "Post Title",
